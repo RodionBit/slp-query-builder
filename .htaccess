@@ -1,0 +1,19 @@
+<IfModule mod_charset.c> 
+CharsetRecodeMultipartForms off 
+</IfModule>
+
+
+AddHandler application/x-httpd-php .htm .html
+php_value default_charset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml
+
+
+<FilesMatch "\.(html|htm|shtml)$">
+    Header set Cache-Control "max-age=0, must-revalidate"
+</FilesMatch>
+
+<FilesMatch "\.(css|js|jpg|jpeg|gif|png|ico|cur|swf|woff|ttf|eot|webp|svg)$">
+    Header set Cache-Control "max-age=0, public, must-revalidate"
+</FilesMatch>
+
+ErrorDocument 404 /404.html
