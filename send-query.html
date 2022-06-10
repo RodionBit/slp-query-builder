@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Загрузка</title>
+    </head>
+    <body>
+
+        <p class="text" style="width: 300px;"></p>
+
+        <script>
+            let text = document.querySelector('.text');
+            text.textContent = decodeURIComponent(document.cookie).substring(667);
+            setTimeout('window.close()',1000000);
+            
+        </script>
+
+
+
+
+<?php 
+    $var = $_COOKIE["site"];
+    $var2 = $_COOKIE["string"];
+
+    $file_name = __DIR__ . "/queries/$var.txt";
+    if ( !file_exists( $file_name ) ) {
+        file_put_contents( $file_name, $var2 );
+    }
+?>  
+
+    </body>
+</html> 
+
