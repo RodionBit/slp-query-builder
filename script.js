@@ -219,7 +219,7 @@ function addingToStrings() {
     document.getElementById('nameString4').style.backgroundColor = '#94E791';
 
     nameLine5.value = nameLine.value.trim();  
-    nameLine6.value = nameLine.value.trim();     
+    nameLine6.value = `${nameLine.value.trim()}-map`;     
 
     localStorage.setItem('internalLink', nameLine2.value);
     localStorage.setItem('schoolName', nameLine.value);
@@ -1105,7 +1105,8 @@ cityWordsCheckFinish.onclick = () => {
  
 let inCities = [
     'Орле',
-    'Москве',           
+    'Москве',
+    'Курске',           
     'Балашихе',             
     'Видном',           
     'Волоколамске',                
@@ -1148,7 +1149,8 @@ let inCities = [
    
 let ofCities = [
     'Орла',
-    'Москвы',           
+    'Москвы',
+    'Курска',           
     'Балашихи',             
     'Видное',           
     'Волоколамска',                
@@ -1215,9 +1217,12 @@ googleLink.onclick = () => {
     width=0,height=0,left=100,top=100`);
 };
  
+// yandexLink.onclick = () => {
+//     window.open(`https://yandex.ru/search/?text=${oblastLine.value} ${address1Line.value}`, "", `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+//     width=0,height=0,left=100,top=100`);
+// };
 yandexLink.onclick = () => {
-    window.open(`https://yandex.ru/search/?text=${oblastLine.value} ${address1Line.value}`, "", `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
-    width=0,height=0,left=100,top=100`);
+    window.open(`https://yandex.ru/search/?text=${oblastLine.value} ${address1Line.value}`);
 };
 // check to finish 
 googleMapLine.oninput = () => {
@@ -2855,8 +2860,8 @@ let confirmID = document.querySelector('.conf-id-input');
 idLine.onclick = () => idLine.style.backgroundColor = 'white';
 
 idLine.oninput = () => {
-    if (idLine.value <= idLine.placeholder) {
-        idLineTitle.textContent = 'Номер равен или меньше последнего в базе данных';
+    if (idLine.value < idLine.placeholder) {
+        idLineTitle.textContent = 'Номер меньше последнего в базе данных';
         idLineTitle.style.color = 'red';
         idLineText.textContent = 'Ошибка';
         idLineText.style.color = 'red';
@@ -3017,7 +3022,7 @@ let line = `(
 '<span id="h4String"></span>', 
 '/img/<span id="nameString3"></span>.webp', 
 'логотип школы <span id="shortString4"></span>', 
-'/img/map/<span id="nameString4"></span>.webp', 
+'/img/map/<span id="nameString4"></span>-map.webp', 
 'карта расположения школы <span id="shortString5"></span>', 
 '<span id="googleMapString"></span>',
 '<span id="yandexMapString"></span>',
@@ -3117,7 +3122,7 @@ finishButton.onclick = () => {
     // console.log(out2.textContent);
 
     var range = document.createRange();
-    range.selectNode(out2); //changed here
+    range.selectNodeContents(out); //changed here
     window.getSelection().removeAllRanges(); 
     window.getSelection().addRange(range); 
     document.execCommand("copy");

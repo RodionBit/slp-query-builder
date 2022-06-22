@@ -94,7 +94,7 @@
 
             <div id="main-is-done" style="padding: 5px;">
                 <li style="list-style-type: none;">
-                    <b>Скопировать ссылку главной страницы сайта <br><br> https://admin.speak-like.pro/</b>
+                    <b>Скопировать ссылку главной страницы сайта</b>
                 </li>
                 <br>
                 <li style="list-style-type: none;">
@@ -118,7 +118,7 @@
 
             <div id="conditions-is-done" style="padding: 5px;">
                 <li style="list-style-type: none;">
-                    <b>Скопировать ссылку главной страницы сайта <br><br> https://admin.speak-like.pro/</b>
+                    <b>Скопировать ссылку главной страницы сайта</b>
                 </li>
                 <br>
                 <li style="list-style-type: none;">
@@ -171,14 +171,14 @@
 
             <div id="school-name-is-done" style="padding: 5px;">
                 <li style="list-style-type: none;">
-                    <b>Скопировать назване школы <br><br> speak like pro</b>
+                    <b>Скопировать назване школы</b>
                 </li>
                 <br>
                 <li style="list-style-type: none;">
                     <span class="school-name-short">Короткое название</span> 
                     <br class="school-name-link-br">
                     <br class="school-name-link-br">
-                    <input type="text" class="short-input" value="school-name">
+                    <input type="text" class="short-input" value="">
                 </li>
                 <br class="school-name-link-br">
                 <li style="list-style-type: none;" class="form_radio_btn conf-later">
@@ -198,7 +198,7 @@
 
             <div id="year-of-origin-is-done" style="padding: 5px;">
                 <li style="list-style-type: none;">
-                    <b>Добавить год основания, если есть <br><br> 1996</b>
+                    <b>Добавить год основания, если есть</b>
                 </li>
                 <br>
                 <li style="list-style-type: none;">
@@ -1535,7 +1535,7 @@
 
             <div id="address-is-done" style="padding: 0 5px;">
                 <li style="list-style-type: none;">
-                    <b>Добавить адрес <br><br> жопа мира</b>
+                    <b>Добавить адрес</b>
                 </li>
                 <br>
                 <li style="list-style-type: none;">
@@ -1582,6 +1582,7 @@
                     <select name="" id="" class="oblast-input">
                         <option value="">выбрать</option>
                         <option value="Орел">Орел</option>
+                        <option value="Курск">Курск</option>
                         <option value="Москва">Москва</option>
                         <option value="Балашиха">Балашиха</option>
                         <option value="Видное">Видное</option>
@@ -1876,7 +1877,7 @@
 
             <div id="title-is-done" style="padding: 5px;">
                 <li style="list-style-type: none;">
-                    <b>Описание Title страницы <br><br> Вот небольшой набор функций для работы с куки</b>
+                    <b>Описание Title страницы</b>
                 </li>
                 <br class="br-after-click-on-textarea">
                 <li style="list-style-type: none;">
@@ -2480,7 +2481,8 @@
             <div id="id-is-done" style="padding: 5px;">
                 <?php
                     include "mysql/database.php";
-                    $calculate = mysqli_query($induction, "SELECT COUNT(*) AS count FROM `catalog-school`");
+
+                    $calculate = mysqli_query($induction, "SELECT MAX(`id`) AS count FROM `catalog-school`");
                     $quantity = mysqli_fetch_assoc($calculate);    
                 ?>
                 <li style="list-style-type: none;">
@@ -2488,10 +2490,10 @@
                 </li>
                 <br>    
                 <li style="list-style-type: none;">
-                    <span class="id-input-title">ID (всего <?php echo $quantity[count] - 1; ?> записей)</span> 
+                    <span class="id-input-title">ID (всего <?php echo $quantity[count]; ?> записей)</span> 
                     <br class="id-input-br">
                     <br class="id-input-br">
-                    <input type="number" class="id-input" placeholder="<?php echo $quantity[count]; ?>">
+                    <input type="number" class="id-input" placeholder="<?php echo $quantity[count] + 1; ?>">
                     <!-- <input type="number" class="id-input" placeholder="11"> -->
                 </li>
                 <li style="list-style-type: none;" class="form_radio_btn conf-id-input">
@@ -2515,6 +2517,7 @@
                         <option value="">выбрать</option>
                         <option value="orel">orel</option>
                         <option value="moscow">moscow</option>
+                        <option value="kursk">kursk</option>
                     </select>
                 </li>
                 <li style="list-style-type: none;" class="form_radio_btn conf-citydb">
@@ -2539,7 +2542,7 @@
 
         <div class="window-result" style="width: 40%; height: 90%; border: 1px solid; position: fixed; top: 0px; right: 0%; overflow-x: scroll; padding: 5%;">
             <div class="out" id="selectable">
-                <div class="query" style="display: none;">
+                <div class="query">
                     INSERT INTO `catalog-school`(`name`, `list_name`, `year`, `link_index`, `link_request`, `link_conditions`, `link_internal`, `price_group`, `price_group_month`, `price_indi`, `price_indi_month`, `oblast`, `zone`, `metro`, `metro_2`, `metro_3`, `address_1`, `address_2`, `address_3`, `address_4`, `tel_1`, `tel_2`, `tel_3`, `tel_4`, `group_max`, `title`, `meta_description`, `meta_keywords`, `big_description`, `h1`, `h2`, `h3`, `h4`, `logo`, `logo_alt`, `map`, `map_alt`, `google-map-link`, `yandex-map-link`, `search_yandex_rating`, `search_google_rating`, `client_category`, `license`, `one_or_net`, `foreign_tutor`, `city`, `id`, `active`) VALUES
                 </div>
                 <div class="out2" style="white-space: pre-line; width: 90%;"></div>
